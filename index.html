@@ -1,23 +1,54 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
-    <meta charset="UTF-8">
-    <title>Quin Quin đẹp gái</title>
+  <meta charset="UTF-8">
+  <title>Quin Quin là số 1</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: flex-start;
+    }
+    .column {
+      display: flex;
+      flex-direction: column;
+    }
+    .line-1 {
+      color: #e91e63;
+      font-weight: bold;
+    }
+    .line-2 {
+      color: #3f51b5;
+      font-style: italic;
+    }
+  </style>
 </head>
-
 <body>
-    <div id="output"></div>
+  <h2>💖 Quin Quin là số 1 💖</h2>
+  <div class="container" id="output"></div>
 
-    <script>
-        const outputDiv = document.getElementById("output");
+  <script>
+    const output = document.getElementById("output");
+    let column = document.createElement("div");
+    column.className = "column";
+    output.appendChild(column);
 
-        for (let i = 0; i < 10000; i++) {
-            const line = document.createElement("p");
-            line.textContent = (i % 2 === 0) ? "Quin Quin đẹp gái" : "Quin Quin là số 1";
-            outputDiv.appendChild(line);
-        }
-    </script>
+    for (let i = 0; i < 10000; i++) {
+      if (i % 24 === 0 && i !== 0) {
+        column = document.createElement("div");
+        column.className = "column";
+        output.appendChild(column);
+      }
+      const p = document.createElement("p");
+      p.className = (i % 2 === 0) ? "line-1" : "line-2";
+      p.textContent = (i % 2 === 0) ? "Quin Quin đẹp gái" : "Quin Quin là số 1";
+      column.appendChild(p);
+    }
+  </script>
 </body>
-
 </html>
